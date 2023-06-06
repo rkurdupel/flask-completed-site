@@ -3,6 +3,9 @@ from telebot import types
 import sqlite3
 from settings import *
 import time
+from app import db, app
+
+
 
 token = "5955004061:AAF6RFnFHYVW-Fvi3zdsgtTYFTxkvVHNLUQ"
 chat_id = "463312066"
@@ -12,55 +15,70 @@ bot = telebot.TeleBot(token = token)
 
 def start(message):
     bot.send_message(message.chat.id, text = "Welcome to Roman's Coffee House !\nNew orders will appear here")
-    print(message.chat.id)
+    
+    # c = data1()
+    # bot.send_message(message.chat.id, text = c)
+    # print(c)
+    # print(message.chat.id)
+
+    markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
+
+    start_receiving = types.KeyboardButton("Start Receiving Orders")
+    markup.add(start_receiving)
+
+    bot.send_message(message.chat.id, text = "Press the button to start receiving new orders ", reply_markup = markup)
 
 print(PATH_INSTANCE + "coffee_house.db")
 
 
-list_of_all_orders = []
+@bot.message_handler(content_types = ["text"])
 
-#@bot.message_handler(func = lambda message: True)
-def receive_order():
-    conn = sqlite3.connect(PATH_INSTANCE + "coffee_house.db")
-    cursor = conn.cursor()
+def receive_orders(message):
+    if message.text == "Start Receiving Orders":
+        markup = types.ReplyKeyboardRemove(selective = False)   # hide markup ( button )
 
-    
-    cursor.execute('''SELECT * FROM receive_order''')
+        bot.send_message(message.chat.id, text = "You will be notified about new orders", reply_markup = markup)
 
-    data = cursor.fetchall()
-    print(data)
-
-    #order_id = 0
-    for order in data:
-        #print(order)
-        order_id = order[0]
-        #print(order_id)
-
-        if order_id in list_of_all_orders:
-            print(1)
-            # list_of_all_orders.append(order_id) # add order id to the list so it won't repeat
+        conn = sqlite3.connect(PATH_INSTANCE + "coffee_house.db")
+        cursor = conn.cursor()
+        list_of_all_orders = []
+        # for order in data:
+        #     order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
+        #     bot.send_message(message.chat.id, order_details)
+        order_id = 0
+        while True:
+            cursor.execute('''SELECT * FROM receive_order''')
+            data = cursor.fetchall()
+            
+            for order in data:
+                order_id = order[0] # get order id
+                #print(order_id)
+                #print(order_id)
+                if order_id in list_of_all_orders:  # if order in list
+                    print(1)
+                else:
+                    print(5)
+                    list_of_all_orders.append(order_id) # if not add order, so only new orders will be sent
+                    order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
+                    bot.send_message(message.chat.id, order_details)    # send order
             #print(list_of_all_orders)
-        else:
-            print(5)
+
+            #order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
+            #bot.send_message(message.chat.id, order_details)
             
-            list_of_all_orders.append(order_id) # add order id to the list so it won't repeat
-            #list_of_all_orders.append(order_id) # add order id to the list so it won't repeat
-            
-            order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
-            bot.send_message(chat_id, order_details)
-
-
-#bot.pollling(none_stop = True)  # launch the bot
-bot.infinity_polling()
-
-
-
+        
         
 
-while True:
-    receive_order()
-    time.sleep(1)   # set delay for few seconds
+           
+            
 
+       
+bot.polling(none_stop = True)
+# while True:
+#     data()
+    #receive_order()
+    #time.sleep(1)   # set delay for few seconds
+    #bot.infinity_polling()  # launch the bot
 
 
 

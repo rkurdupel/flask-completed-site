@@ -19,34 +19,12 @@ from settings import *
 def hall_page():
     return render_template("hall.html")
 
-# main page /
-@app.route("/main") # за таким маршрутом http://127.0.0.1:5000/
 
-@login_required # you should be logged in, otherwise you won't enter the page (mainpage)
-def index():
-    #return "<h1>Hello World!</h1>"   # результат, що повертається у браузер
-    #return "text"  # works - output: text
-    users = User.query.all()    # отримати всі об'єкти user
-    print(users)    # [User: Roman99999, User: Johnpro2344, User: sawdw232, User: ddedf242]
-    return render_template("index.html", users = users)    # load html page index.html
-    # user = users - transfer data 
 
-@app.route("/about")    # @app.route("/about") - http://127.0.0.1:5000/about
-def about():
-    return "<b>About page</b>"
 
 
 # ALL TEMPLATES SHOULD BE IN THE templates folder, otherwise flask will not be able to find them
-@app.route("/html_template")
-def main_page():
-    return render_template("index.html")
 
-@app.route("/hobbies")
-def hobbies():
-    return render_template("hobbies.html")
-@app.route("/my_contact")
-def contract_details():
-    return render_template("my_contact.html")
 
 # app.route - decorator
 @app.route("/signup", methods = ["POST", "GET"])    # methods - methods, post - send data, get - get data
@@ -95,48 +73,6 @@ def logout():
     flash("You logged out of the page", "alert alert-success")
     return redirect(url_for("signin"))
 
-@login_required
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
-
-
-@app.route("/projects")
-@login_required
-
-def projects():
-    print(1)
-    return render_template("projects.html")
-
-@app.route("/projects/new", methods = ["POST", "GET"])
-@login_required
-def new_project():
-    if request.method == "POST":
-        try:    # try to add a new project
-            image = request.files["image_file"]     # get name for our picture from html file   
-            image.save(PATH_STATIC + "img" + os.sep + "upload" + os.sep + image.filename)     # save picture in img/upload/
-            new_project = Project(title = request.form["title"], 
-                                description = request.form["description"], 
-                                link = request.form["link"], 
-                                status = request.form["status"],
-                                image = image.filename,
-                                user_id = current_user.get_id()
-                                )
-            db.session.add(new_project)
-            db.session.commit()
-            flash("Project is added")  # flash message - project is added
-            # request.form["row"]   # get row from  the database
-        except: # if error occurs
-            db.session.rollback()   # cancel all changes if the problem occurred
-            flash("Problem with adding a new project", category = "alert alert-danger")   # flash message with category danger
-            # alert alert-danger - red color message
-    return render_template("new_project.html")
-
-@app.route("/projects/<project_id>")
-@login_required
-def project_page(project_id):
-    project = Project.query.get(int(project_id))   # get project  by id
-    return render_template("project_page.html", project = project)  # project = project - transfer variable
 
 
 
@@ -196,8 +132,7 @@ def cart_page(user_id):
     total_amount = calculate_total_amount(user_id = user_id)
     print(total_amount)
    
-    # for item in orders:
-    #      image = f"static/images/{item.product_name}.png"   # make through separator os library !!!
+    
     
     image = PATH_STATIC + 'images' + os.sep + "Cappuccino" + ".png"
     print(image)

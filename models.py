@@ -44,12 +44,7 @@ class Order(db.Model):
     
     
 #  ↨
-# class OrderItem(db.Model):  # cart
-#     id = db.Column(db.Integer, primary_key = True)
-#     product_id = db.Column(db.Integer)
-#     order_id = db.Column(db.Integer)
-#     user_id = db.Column(db.Integer)
-#     amount_products = db.Column(db.Integer)
+
 
 class ReceiveOrder(db.Model):
     id = db.Column(db.Integer, primary_key = True)

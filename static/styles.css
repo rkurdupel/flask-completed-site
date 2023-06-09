@@ -4,13 +4,15 @@
   color: #fff;
 
 }
+
+
 body {
     min-height: 150vh;
     /* background: linear-gradient(rgb(170, 147, 147), rgb(166, 78, 107)); */ /* pink */
     background: linear-gradient(to top, #09203f 0%, #537895 100%);
     color: white;
     font-family: 'Noto Sans Mono', monospace;
-    
+   
 
 }
 
@@ -184,9 +186,14 @@ body {
 }
 
 
+/* footer  start */
+
 .footer {
   background: linear-gradient(rgba(6, 3, 21, .5), rgba(6, 3, 21, .5)), url(../img/map.png) center center no-repeat;
   background-size: cover;
+  
+
+
 }
 
 .footer .btn.btn-social {
@@ -208,7 +215,6 @@ body {
 
 .footer .btn.btn-link {
   display: block;
-  margin-bottom: 5px;
   padding: 0;
   text-align: left;
   color: #FFFFFF;
@@ -240,6 +246,8 @@ body {
 .footer .copyright a {
   color: var(--light);
 }
+
+/* footer end */
 
 .heading {
   color: black

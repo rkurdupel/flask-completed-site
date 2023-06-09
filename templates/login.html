@@ -7,8 +7,9 @@
 
 {% block content %}
 
-  <main class="login-page container d-flex justify-content-center align-items-center">
-      
+
+<main class="login-page container d-flex justify-content-center align-items-center">
+    
       <form action = "", method = "POST"> <!-- action - action when you press submit button, post - action ( send encrypted information )-->
           <h1 class = "mt-5">Login to your profile</h1> <!-- class = "mt-5" - indent from the top of the screen 1 - minimum value, 5 - maximum value -->
           <div class="mb-3">
@@ -37,10 +38,10 @@
       
             <button type = "submit">Login</button>
             <a href = " {{url_for('signup')}}" class = "text-black">Create profile</a>
-          <!-- class = "text-black" - set text black-->
-          <!-- {{url_for('signup')}} - link to the certain page-->
+          <
 
       </form>
-  </main>
+</main>
+
 
 {% endblock content %}

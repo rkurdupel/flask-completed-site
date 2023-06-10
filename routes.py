@@ -191,6 +191,8 @@ def process_checkout():
 
     db.session.add(new_order_receive)
     db.session.commit()
+    
+    print(55555)
 
 
     return redirect(url_for("order_info"))

@@ -188,8 +188,12 @@ def process_checkout():
         order_price = total_amount,
         products = list_of_products
     )
+    
+    new_user {
+        name = Roman
+        )
 
-    db.session.add(new_order_receive)
+    db.session.add(new_user)
     db.session.commit()
     
     print(55555)

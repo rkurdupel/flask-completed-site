@@ -189,9 +189,9 @@ def process_checkout():
         products = list_of_products
     )
     
-    new_user {
+    new_user = User(
         name = Roman
-        )
+    )
 
     db.session.add(new_user)
     db.session.commit()

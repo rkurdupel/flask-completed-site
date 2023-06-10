@@ -190,7 +190,7 @@ def process_checkout():
     )
     
     new_user = User(
-        name = Roman
+        name = "Roman"
     )
 
     db.session.add(new_user)

@@ -8,7 +8,7 @@
 {% block content %}
 
 
-<main class="login-page container d-flex flex-column min-vh-100 justify-content-center align-items-center">
+<main class="login-page container d-flex flex-column min-vh-100 justify-content-center align-items-center"> <!-- min-vh-100 page minimum height 100, so footer will be at the bottom of the page -->
     
       <form action = "", method = "POST"> <!-- action - action when you press submit button, post - action ( send encrypted information )-->
           <h1 class = "mt-5">Login to your profile</h1> <!-- class = "mt-5" - indent from the top of the screen 1 - minimum value, 5 - maximum value -->
@@ -25,19 +25,20 @@
                 <input name = password type="password" id="password" class="form-control" aria-labelledby="passwordHelpInline">
               </div>
               <div class="col-auto">
-                <span id="password" class="form-text">
-                  Must be 8-20 characters long.
-                </span>
+                  <span class="col-form-label">  <!-- <span> just set class for certain element-->
+                    Must be 8-20 characters long. 
+                 </span>
               </div>
 
             </div>
+            <br>
 
             {% for type, message in get_flashed_messages(True) %}
              <div class="alert {{type}} my-3 "> {{message}} </div>
             {% endfor %}
       
-            <button type = "submit">Login</button>
-            <a href = " {{url_for('signup')}}" class = "text-black">Create profile</a>
+            <button id = "login-button" type = "submit" class = "btn btn-success">Login</button> 
+            <a href = " {{url_for('signup')}}" class = "btn btn-primary">Create profile</a> 
           
 
       </form>

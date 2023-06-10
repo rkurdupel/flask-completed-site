@@ -6,7 +6,7 @@
 
 {% block content %}
 
-  <main class="login-page container d-flex justify-content-center align-items-center">
+  <main class="login-page container d-flex min-vh-100 justify-content-center align-items-center">
       
       <form action = "", method = "POST"> <!-- action - action when you press submit button, post - action ( send encrypted information )-->
           <h1 class = "mt-5">Create profile</h1>
@@ -30,7 +30,7 @@
                 <input name = password type="password" id="password" class="form-control" aria-labelledby="passwordHelpInline">
               </div>
               <div class="col-auto">
-                <span id="password" class="form-text">
+                <span id="password" class="col-form-label">
                   Must be 6-20 characters long.
                 </span>
               </div>
@@ -44,6 +44,8 @@
               <div class="col-auto">
                 <input name = "passwordCheck" type="password" id="password" class="passwordCheck" aria-labelledby="passwordHelpInline">
               </div>
+
+
               
               
              </div>
@@ -51,8 +53,10 @@
              <div class="alert {{type}} my-3 "> {{message}} </div>
              {% endfor %}
 
-            <button type = "submit">Register</button>
-            <button><a href = "{{url_for('signin')}}">Already have an account? Sign in</a></button>
+             <br>
+
+            <button id = "login-button" type = "submit" class = 'btn btn-primary'>Register</button>
+            <a href = "{{url_for('signin')}}" class = "btn btn-success">Already have an account? Sign in</a>
 
 
       </form>  

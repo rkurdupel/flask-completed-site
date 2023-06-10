@@ -21,6 +21,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=JetBrains+Mono:ital,wght@1,800&family=Noto+Sans+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@700&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href = {{ url_for('static', filename='styles.css')}} <!-- connect css using path static/styles.css (1 argument - folder (static), second - filename (filename = "styles.css"))-->
         <!-- jinja 2 -->
@@ -34,7 +38,7 @@
         <!-- Navbars require a wrapping .navbar with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing and color scheme classes.--> 
         <nav class="navbar navbar-expand-lg navbar-light">  <!-- bg-primary - set backgroumd color --> <!-- navbar-light - transparent background--> <!-- navbar-expand-lg to set correct navbar resolution for each device -->
           <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src = "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1280px-Starbucks_Corporation_Logo_2011.svg.png" width = 75 height = 75></img></a> <!-- set Starbucks logo -->
+            <a class="navbar-brand" href="#"><img src = "{{ url_for('static', filename = 'images/house_logo.png') }} " width = 75 height = 75></img></a> <!-- set logo, logo directory should be set through url_for(folder, filename = "directory, can contain more folders (images/css/assets/photo.png)")-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -58,15 +62,13 @@
 
             <form class = "form-inline my-2 my-lg-0"> <!-- end of the navigation bar-->
                 
-                
-
-
+            
               </form>
               {% if current_user.is_authenticated %}    <!-- if user is authenticated-->
-              <a href = "{{ url_for('logout') }}"><button class = "mybutton2" type = "button"> Log out</button></a> <!-- 1 should be a, 2 should be button -->
+              <a href = "{{ url_for('logout') }}"><button class = "btn btn-danger" type = "button"> Log out</button></a> <!-- 1 should be a, 2 should be button -->
               {% else %} <!-- if user is not authenticated  -->
-              <a href = "{{url_for('signin')}}"><button type = "button" class = "btn btn-outline-success">Sign In</button></a>
-                <a href = " {{url_for('signup')}}"><button class = "mybutton" type = "button">Sign Up</button></a>
+              <a href = "{{url_for('signin')}}"><button type = "button" class = "btn btn-success" id = "login-button">Sign In</button></a>
+              <a href = " {{url_for('signup')}}"><button class = "btn btn-primary" type = "button" id = "white-text">Sign Up</button></a>
               {% endif %}
               
 
@@ -78,7 +80,7 @@
         </nav>
 
         <hr class = "border border-white border-1 opacity-100"> <!-- horizontal line, should be outside nav class--> <!-- border-white - color border-5 - size (5 - maximum 0 - invisible)  opacity-100 - clearance-->
-
+        
      
 
     </header>
@@ -168,7 +170,8 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 
-       
+    <script src="https://kit.fontawesome.com/7d4b580a98.js" crossorigin="anonymous"></script> <!-- connect icons -->
+   
         
 </body>
 

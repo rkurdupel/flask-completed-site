@@ -27,8 +27,8 @@ login_manager.login_message_category = "alert-warning"  # set log in message (lo
 from routes import *    # import all, from routes import routes - import only object routes
 
 if __name__== "__main__":   # при запуску app.py, після цієї умови більше нічого окрім функцій в класах не буде виконуватись
-    app.config["TEMPLATES_AUTO_RELOAD"] = True  # що б сайт постійно перезгружвася ( що б відображались нові зміни )
-    app.run(debug = True, port = 5001)   # launch local web-server from this file
+    #app.config["TEMPLATES_AUTO_RELOAD"] = True  # що б сайт постійно перезгружвася ( що б відображались нові зміни )
+    app.run(port = 5001)   # launch local web-server from this file
     # debug = True - запустити в режимі debug
    
 # ЩОБ ПОКАЗУВАЛОСЬ ФОТО З .html файлу потрібно створити папку static/images і туди закинути файл, 

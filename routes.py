@@ -36,6 +36,8 @@ def signup():
         
         elif len(request.form["password"]) < 6 or len(request.form["username"]) < 6: # if password or username less than 6 chars then
             flash("password or username should contain more than 6 chars !", "alert alert-danger")
+        elif len(request.form["password"]) > 20 or len(request.form["username"]) > 20:  # request.form["password"] - get password from html file by name name = "password"
+            flash("username or password should contain less than 20 chars !", "alert alert-danger")
         elif request.form["password"] == request.form["passwordCheck"]: # if password = repeat password
 
             user = User(name=request.form["name"], 
@@ -137,6 +139,19 @@ def cart_page(user_id):
     image = PATH_STATIC + 'images' + os.sep + "Cappuccino" + ".png"
     print(image)
     return render_template("cart.html", orders = orders, total_amount = total_amount, image = image, order_len = order_length)
+
+@app.route("/remove_from_cart", methods = ["POST"])
+
+def remove_product_from_cart():
+    
+    item_id = request.form.get("item_id")
+    order = Order.query.get(item_id)
+
+    if order:
+        db.session.delete(order)
+        db.session.commit()
+    
+    return redirect(url_for("cart_page", user_id = current_user.id))
 
 @app.route("/check", methods = ["GET", "POST"])
 @login_required

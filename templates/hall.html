@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 
-{% block content %}
- <!--  <img src = "static/images/coffee house banner.png"  width = 100%"> <!-- width = 100% - stretch photo on the full screen-->
-
 {% block title %}
 
 <title>Hall Page</title>
@@ -10,30 +7,34 @@
 {% endblock title %}
 
 
+{% block content %}
+ <!--  <img src = "static/images/coffee house banner.png"  width = 100%"> <!-- width = 100% - stretch photo on the full screen-->
+
+
+
 
 <main>
-    <div class = "intro">
-        <div class  ="containter">
-
-        </div>
-    </div>
+   
     <div class = "container">
-        
+
             <div class = "benefits">
         
-                <h1 class = "hall">Benefits of our Coffee House</h1>
+                <h1 class = "text-center", id = "hall">Benefits of our Coffee House</h1> <br>
                 <table>
                     <tr>
+                     
                         <td><div class="card">Friendly Staff ❤</div></td>
-                        <td><div class="card">A LARGE selection of coffee varieties 🌿</div></td>
+                        <td><div class="card ">A LARGE selection of coffee varieties 🌿</div></td>
                         <td><div class="card">Fast Order Delivery ⚡</div></td>
-                    </tr>
+                      
+                      </tr>
                 </table>
-            </div>
+            </div>  
+            <br><br>  <!-- <br> - empty row -->
 
             
             <div class="coffeehouses">
-                <h1 class  = "hall">Our coffee houses:</h1>
+                <h1 class = "text-center", id = "hall">Our coffee houses</h1> <br>
                 <!-- data-bs-ride - autoplay -->
                 <div id = "carouselExampleDark" class = "carousel carousel-white slide" data-bs-ride = "carousel"> <!--  data-bs-ride = autplay carousel, carousel carousel-white slide - white caption change white to dark to get dark -->
                     <div class="carousel-indicators">

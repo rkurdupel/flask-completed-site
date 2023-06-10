@@ -31,6 +31,7 @@
     <link href="static/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="static/responsive.css" rel="stylesheet" />
+    <link href="static/styles.css" rel="stylesheet" />
   
   
 {% endblock title %}
@@ -53,10 +54,12 @@
 
       <table>
         <tr>
-          <td><h1 class = "heading"><a href = "#drinks">Drinks</a></h1></td>
+          <div class="col-md-12 text-center">
+          <td><h1 class = "heading"><a href = "#drinks" class = "btn btn-light btn-lg" id = "menu-nav">Drinks</a></h1></td> <!-- btn-lg - big button, btn-sm small button, bootstrap arguments-->
           <td><h1 class = "heading">•</h1></td>
-          <td><h1 class = "heading"><a href = "#food">Food </a></h1></td>   <!-- a href = "#food"  got to the certain place on the page, <a id = "food><h1>Wow</hi></a> set tag food to the heading ( the biggest heading ) -->
-        </tr>
+          <td><h1 class = "heading"><a href = "#food" class = "btn btn-info btn-lg">Food </a></h1></td>   <!-- a href = "#food"  got to the certain place on the page, <a id = "food><h1>Wow</hi></a> set tag food to the heading ( the biggest heading ) -->
+          </div>
+          </tr>
         </table>
         <br><br><br>
         

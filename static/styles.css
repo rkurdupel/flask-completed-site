@@ -65,7 +65,8 @@ body {
 .nav-link {     
   font-size: 20px;
   color: white;
-  font-family: "JetBrains Mono", monospace;
+  font-family: 'Spline Sans Mono', monospace; /* font-family: 'Spline Sans Mono', monospace - set font spline sans mono, monospace type of fonts */
+
 
 }
 
@@ -151,7 +152,7 @@ body {
 }
 
 
-.hall{
+#hall{
   font-family: 'Architects Daughter', cursive;
 }
 
@@ -164,7 +165,7 @@ body {
   box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(6px);
   border-radius: 17px;
-  text-align: center;
+  text-align: right;
   cursor: pointer;
   transition: all 0.5s;
   display: flex;
@@ -174,6 +175,7 @@ body {
   font-weight: bolder;
   color: black;
   margin-right: 50px; /* margin right - indent to right */
+ 
 }
 
 .card:hover {
@@ -427,5 +429,22 @@ body {
     background-position: 0 175px
   }
 }
+
+
+#login-button { /* # - id, set style for certain id #login-button, should not contain space ( ), otherwise will not work */
+  margin-right: 10px;
+}
+
+#register-button {
+  margin-right: 10px;
+}
+
+#white-text {
+  color: #fff
+}
+
+/* laoder */
+
+
 
  /* ctrl + fn + f5 reload styles */       

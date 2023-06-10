@@ -42,7 +42,7 @@
 
 
 
-<main class="sub_page">
+<main class="sub_page min-vh-100">
 
 
   
@@ -64,7 +64,7 @@
         <br><br><br>
         
       
-      <a id = "drinks"></a><h1 style = "text-align: center">DRINKS</h1>  <!-- style = "text-aling: center - align text to the center"-->
+      <a id = "drinks"></a><h1 style = "text-align: center" class = "label">DRINKS</h1>  <!-- style = "text-aling: center - align text to the center"-->
       <br><br><br>
       <div class="filters-content">
         <div class="row grid">
@@ -72,16 +72,16 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <<img src="static/images/cappuccino.png" alt="">>
-                  <img src="{{url_for('static', filename = 'images/Cappuccino.png')}}" alt="">
+                 
+                  <img src="{{url_for('static', filename = 'images/Cappuccino.png')}}" alt="">  
                 </div>
                 <div class="detail-box">
-                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct"> <!-- #1 -->
                   <h5>
-                    <input type = "hidden" name = "item", value = "Cappuccino">Cappuccino</span>
+                    <input type = "hidden" name = "item", value = "Cappuccino">Cappuccino</span> <!-- #2 -->
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A classic Italian espresso-based drink with equal parts espresso, steamed milk, creating a rich and creamy texture
                   </p>
                   <div class="options">
                     <h6>
@@ -89,7 +89,7 @@
                     </h6>
                       
                    {% if current_user.is_authenticated %} <!-- if user is authenticated - allow him to add product to cart, if he is not authenticated there will be error UserMixin has no id-->
-                   <a href = "#" onclick = "document.getElementById('addProduct').submit()" name = ""> 
+                   <a href = "#" onclick = "document.getElementById('addProduct').submit()" name = "">  <!-- #3 -->
                    {% else %}
                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
                    {% endif %}
@@ -153,7 +153,7 @@
               </div>
             </div>
           </div>
-        </form>
+        </form> <!-- #4 -->
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -166,7 +166,7 @@
                     <input type = "hidden" name = "item" value = "Latte">Latte
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A smooth and mellow coffee beverage made with espresso and steamed milk, topped with a thin layer of creamy foam
                   </p>
                   <div class="options">
                     <h6>
@@ -244,7 +244,7 @@
                    <input type= "hidden" name = "item" value = "Flat White"> Flat White
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    Originating from Australia and New Zealand, it consists of a double shot of espresso with steamed milk, creating a creamy flavor
                   </p>
                   <div class="options">
                     <h6>
@@ -318,17 +318,18 @@
                   <img src="static/images/Hot Chocolate.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST" id = "addProduct4">
                   <h5>
-                    Hot Chocolate
+                    <input type = "hidden" name = "item" value = "Hot Chocolate">Hot Chocolate
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A comforting and indulgent drink made with rich, creamy chocolate and steamed milk, topped with whipped cream 
                   </p>
                   <div class="options">
                     <h6>
                       $8
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct4').submit()">  <!-- confirm form -->
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -387,6 +388,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all fries">
             <div class="box">
               <div>
@@ -394,17 +396,18 @@
                   <img src="static/images/Chocolate Frappuccino.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST" id = "addProduct5">
                   <h5>
-                    Chocolate Frappuccino
+                    <input type= "hidden" name = "item" value = "Chocolate Frappuccino">Chocolate Frappuccino
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A refreshing blended beverage made with chocolate, milk, and ice, topped with whipped cream and chocolate drizzle
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct5').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -463,6 +466,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
@@ -470,17 +474,18 @@
                   <img src="static/images/Bubble Tea.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct6">
                   <h5>
-                    Bubble Tea
+                    <input type= "hidden" name = "item" value = "Bubble Tea">Bubble Tea
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A fun and trendy drink originating from Taiwan, featuring sweet and chewy tapioca pearls combined with flavored tea or milk
                   </p>
                   <div class="options">
                     <h6>
                       $5
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct6').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -539,6 +544,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -546,17 +552,18 @@
                   <img src="static/images/Iced Tea.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct7">
                   <h5>
-                    Iced Tea
+                    <input type= "hidden" name = "item" value = "Iced Tea">Iced Tea
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A refreshing beverage made by steeping tea leaves in cold water, served over ice and often accompanied by lemon or sweeteners
                   </p>
                   <div class="options">
                     <h6>
                       $5
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct7').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -615,6 +622,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -622,17 +630,18 @@
                   <img src="static/images/Caramel Apple Juice.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct8">
                   <h5>
-                    Caramel Apple Juice
+                    <input type= "hidden" name = "item" value = "Caramel Apple Juice">Caramel Apple Juice
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A delightful combination of sweet caramel and crisp apple juice, creating a deliciously refreshing and fruity beverage
                   </p>
                   <div class="options">
                     <h6>
                       $4
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct8').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -691,6 +700,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
@@ -698,17 +708,18 @@
                   <img src="static/images/Lemonade.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct9">
                   <h5>
-                    Lemonade
+                    <input type= "hidden" name = "item" value = "Lemonade">Lemonade
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A tangy and thirst-quenching drink made with freshly squeezed lemons, water, and sweetened with sugar or honey
                   </p>
                   <div class="options">
                     <h6>
                       $6
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct9').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -769,12 +780,13 @@
           </div>
         </div>
       </div>
+    </form>
 
 
       <br><br><br><br><br><br><br><br>  <!-- <br> - create an empty row-->
       
       <div class="filters-content">
-        <a id = "food"><h1 style = "text-align: center">FOOD</h1></a> <!-- style = "text-align: center" align text to the center-->
+        <a id = "food"><h1 style = "text-align: center" class = "label">FOOD</h1></a> <!-- style = "text-align: center" align text to the center-->
         <br><br><br> <!-- <br> - create anv empty row-->
         <div class="row grid">
           <div class="col-sm-6 col-lg-4 all pizza">
@@ -784,17 +796,18 @@
                   <img src="static/images/chicken sandwich.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct10">
                   <h5>
-                    Chicken Sandwich
+                    <input type= "hidden" name = "item" value = "Chicken Sandwich">Chicken Sandwich
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A satisfying sandwich filled with tender, flavorful chicken, accompanied by lettuce, tomato, and a choice of condiments
                   </p>
                   <div class="options">
                     <h6>
                       $10
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct10').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -853,6 +866,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -860,17 +874,18 @@
                   <img src="static/images/panini sandwich.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct11">
                   <h5>
-                    Panini Sandwich
+                    <input type= "hidden" name = "item" value = "Panini Sandwich">Panini Sandwich
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A grilled Italian-style sandwich with various fillings like cheese, cured meats, and vegetables, pressed between toasted bread
                   </p>
                   <div class="options">
                     <h6>
                       $8
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct11').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -929,6 +944,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
@@ -936,17 +952,18 @@
                   <img src="static/images/ham sandwich.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct12">
                   <h5>
-                    Ham Sandwich
+                    <input type= "hidden" name = "item" value = "Ham Sandwich">Ham Sandwich
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A classic sandwich featuring slices of savory ham, often layered with cheese, lettuce, and mayo, served on soft bread
                   </p>
                   <div class="options">
                     <h6>
                       $9
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct12').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1005,6 +1022,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
@@ -1012,17 +1030,18 @@
                   <img src="static/images/cheesecake.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct13">
                   <h5>
-                    Cheesecake
+                    <input type= "hidden" name = "item" value = "Cheesecake">Cheesecake
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A decadent dessert with a creamy and smooth texture, made with a rich blend of cream cheese, sugar, and a crumbly crust
                   </p>
                   <div class="options">
                     <h6>
                       $12
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct13').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1081,6 +1100,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all fries">
             <div class="box">
               <div>
@@ -1088,17 +1108,18 @@
                   <img src="static/images/apple strudel.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct14">
                   <h5>
-                    Apple Strudel
+                    <input type= "hidden" name = "item" value = "Apple Strudel">Apple Strudel
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A traditional pastry made with flaky layers of dough filled with sweet apple slices, cinnamon, and topped with powdered sugar
                   </p>
                   <div class="options">
                     <h6>
                       $11
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct14').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1157,6 +1178,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
@@ -1164,17 +1186,18 @@
                   <img src="static/images/belgian waffles.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct15">
                   <h5>
-                    Belgian Waffles
+                    <input type= "hidden" name = "item" value = "Belgian Waffles">Belgian Waffles
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A beloved breakfast treat featuring light and fluffy waffles with deep pockets, served with toppings like fresh fruit or whipped cream
                   </p>
                   <div class="options">
                     <h6>
                       $9
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct15').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1233,6 +1256,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -1240,17 +1264,18 @@
                   <img src="static/images/muffin.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct16">
                   <h5>
-                    Muffin
+                    <input type= "hidden" name = "item" value = "Muffin">Muffin
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A moist and soft individual-sized cake, available in various flavors like blueberry or bran, perfect for a quick snack or breakfast
                   </p>
                   <div class="options">
                     <h6>
                       $3 
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct16').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1309,6 +1334,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
@@ -1316,17 +1342,18 @@
                   <img src="static/images/doughnut.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct17">
                   <h5>
-                    Doughnut
+                    <input type= "hidden" name = "item" value = "Doughnut"> Doughnut
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A sweet and circular pastry, typically fried and covered in glaze or sugar, with a soft and fluffy interior
                   </p>
                   <div class="options">
                     <h6>
                       $5
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct17').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1385,6 +1412,7 @@
               </div>
             </div>
           </div>
+        </form>
           <div class="col-sm-6 col-lg-4 all pasta">
             <div class="box">
               <div>
@@ -1392,17 +1420,18 @@
                   <img src="static/images/croissant.png" alt="">
                 </div>
                 <div class="detail-box">
+                  <form action="{{url_for('add_to_cart')}}" method = "POST" id = "addProduct18">
                   <h5>
-                    Croissant
+                   <input type="hidden" name = "item" value = "Croissant"> Croissant
                   </h5>
                   <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                    A buttery and flaky pastry of French origin, perfect for enjoying plain or filled with savory or sweet ingredients
                   </p>
                   <div class="options">
                     <h6>
                       $3
                     </h6>
-                    <a href="">
+                    <a href="#" onclick = "document.getElementById('addProduct18').submit()">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1463,12 +1492,13 @@
           </div>
         </div>
       </div>
-      
     </div>
+  </form>
+
   
     
     <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
-
+  </section>
   <!-- end food section -->
 
   

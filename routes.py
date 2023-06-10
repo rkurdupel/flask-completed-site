@@ -92,7 +92,7 @@ def add_to_cart():
 
     # data gets from input value = "data", value finds by name, name = "item"
     chosen_item = request.form.get('item')  # request.form.get('item') get from menu html item
-    # returns name of the item that the usee has chosen
+    # returns name of the item that the user has chosen, from value 
     print(chosen_item)
 
     dbItem = Item.query.filter_by(product_name = chosen_item).first()   # get product which user chose from database, first() - to get the first product
@@ -105,7 +105,7 @@ def add_to_cart():
         
     )
     db.session.add(order)   # add order to the Order table
-    db.session.commit() # commit changes, otherwise anything will not save
+    db.session.commit() # commit changes, otherwise anything will not be saved
 
     return redirect(url_for('cart_page', user_id = current_user.id))
 
@@ -156,9 +156,11 @@ def remove_product_from_cart():
 @app.route("/check", methods = ["GET", "POST"])
 @login_required
 def checkout_page():
-    current_user_id = current_user.id
-    print(current_user_id)    
-    return render_template("checkout.html")
+    user_id = current_user.id   # current_user.id -  get current user id
+    print(user_id)
+    user_data = User.query.filter_by(id = user_id).first()  # get user from datbase table User, where id equals current user id
+    name = user_data.name   # get name
+    return render_template("checkout.html", user_name = name)   # user_name = name, send to html file variable user_name which contains name of current user
 
 @app.route("/process_checkout", methods = ["POST"])
 @login_required
@@ -201,6 +203,12 @@ def process_checkout():
 @login_required
 def order_info():
      return render_template("order_status.html")
+
+
+@app.route('/achievements')
+@login_required
+def achievement_page():
+    return render_template("achievement.html")
 
 # якщо машрут route без "/" - буде помилка, if route without "/" error will occur:
 #  ValueError: urls must start with a leading slash

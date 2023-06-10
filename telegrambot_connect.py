@@ -4,12 +4,16 @@ import sqlite3
 from settings import *
 import time
 from app import db, app
+from datetime import datetime
 
 
 
 token = "5955004061:AAF6RFnFHYVW-Fvi3zdsgtTYFTxkvVHNLUQ"
 chat_id = "463312066"
 bot = telebot.TeleBot(token = token)
+
+now = datetime.now() # get current time, output: 2023-06-10 21:22:32.212543
+print(now) 
 
 @bot.message_handler(commands = ["start"])
 
@@ -59,8 +63,10 @@ def receive_orders(message):
                 else:
                     print(5)
                     list_of_all_orders.append(order_id) # if not add order, so only new orders will be sent
-                    order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
+                    order_details = f"               NEW ORDER | {order[0]} | {now.strftime('%H:%M')} \n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   
                     bot.send_message(message.chat.id, order_details)    # send order
+                    # now.strftime('%H:%M:%S:%f) - 21:22:720768.... # hours, minutes, seconds, milliseconds
+           
             #print(list_of_all_orders)
 
             #order_details = f"               NEW ORDER | {order[0]} |\n---------------------------------------\n\nOrder details:\n\n{order[8]}                                               ${order[7]} total\n\nCustomer info:\n\n{order[1]}\n{order[2]}\n{order[3]}\n{order[4]}\n{order[5]}\n{order[6]}\n\n---------------------------------------"   

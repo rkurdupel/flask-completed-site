@@ -4,7 +4,7 @@ import secrets
 from flask_login import LoginManager
 
 
-  
+# URL_FOR USES WHEN YOU NEED TO SEE PHOTOS ON MANY PAGES
 
 login_manager = LoginManager()  # об'єкт що буде відповідати за login, object that is responsible for login
 
@@ -28,8 +28,10 @@ from routes import *    # import all, from routes import routes - import only ob
 
 if __name__== "__main__":   # при запуску app.py, після цієї умови більше нічого окрім функцій в класах не буде виконуватись
     #app.config["TEMPLATES_AUTO_RELOAD"] = True  # що б сайт постійно перезгружвася ( що б відображались нові зміни )
-    app.run(port = 5001)   # launch local web-server from this file
+    app.run(port = 5001, debug = True)   # launch local web-server from this file
     # debug = True - запустити в режимі debug
+    # WHEN YOU DEPLOY WEBSITE REMOVE debug = True
+    # debug = True - allows to see changes, withut restarting the website 
    
 # ЩОБ ПОКАЗУВАЛОСЬ ФОТО З .html файлу потрібно створити папку static/images і туди закинути файл, 
 # і в .html файлі вказати шлях  path static/images/image_name.png

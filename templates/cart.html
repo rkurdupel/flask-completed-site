@@ -99,7 +99,7 @@
       Total: ${{ total_amount }}
     </div>
   </div>
-  {% if order_len > 0 %} <!-- if there are products in the cart-->
+  {% if order_len > 0 %} <!-- if there are products in the cart, otherwise don't show checkout button -->
     <a href="{{ url_for('checkout_page') }}" class="checkout-button">Checkout</a>
   {% endif %}
 

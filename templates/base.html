@@ -48,7 +48,7 @@
                 <a class="nav-link" aria-current="page" href="{{url_for('hall_page')}}">Home</a> <!-- nav-link active ( more bold button, when change color it will be stil black ) P.s can be infinite amount of active buttons -->
                 <!-- names from routes.py -->
                 <a class="nav-link" href="{{ url_for('menu_page') }}">Menu</a> 
-                <a class="nav-link">History</a>
+                <a class="nav-link" href = "{{ url_for('achievement_page') }}">Achievements</a>
                 
                 
     
@@ -108,10 +108,17 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Roman Coffee House</h4>
+                   
+                    <div class="d-flex pt-2">
+                        <img class = "move-to-right" src="{{ url_for('static', filename = 'images/house_logo.png') }}" alt="" width = 150px height = 120px> <!-- url-for uses when you need to see the photo on many pages-->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Address</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Rynok Square, 31, Lviv</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+380 (50) 035-55-67</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>infokrd@yahoo.com</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -121,28 +128,21 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Services</h4>
-                    <a class="btn btn-link" href="">Air Freight</a>
-                    <a class="btn btn-link" href="">Sea Freight</a>
-                    <a class="btn btn-link" href="">Road Freight</a>
-                    <a class="btn btn-link" href="">Logistic Solutions</a>
-                    <a class="btn btn-link" href="">Industry solutions</a>
+                    <p class = "btn btn-link">Order</p>    <!-- замовлення -->
+                    <p class = "btn btn-link">Delivery</p> <!-- доставка -->
+                    <p class = "btn btn-link">Franchise</p>    <!-- франшиза -->
+                    <p class = "btn btn-link">Product purchase</p> <!-- покупка продуктів -->
+                    <p class = "btn btn-link">Promote you advertisement</p>    <!-- просунути рекламу -->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="">Menu</a>
+                    <a class="btn btn-link" href="">Achievements</a>
+                    <a class="btn btn-link" href="">Main Page</a>
+                    <a class="btn btn-link" href="https://www.astartingpoint.com/static/tos.html?psafe_param=1&gclid=CjwKCAjwvpCkBhB4EiwAujULMn5OO7hj5GY3MmIGuobPzKi6DNqomI1hYP6oHNJaAKEdPxY0tk9JphoCbEMQAvD_BwE">Terms & Condition</a>
+
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Newsletter</h4>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <div class="container">

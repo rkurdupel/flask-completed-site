@@ -19,5 +19,5 @@ SQLAlchemy==2.0.15
 telebot==0.0.5
 typing_extensions==4.6.3
 urllib3==2.0.3
-Werkzeug==2.3.6
+Werkzeug==2.2.3
 zipp==3.15.0

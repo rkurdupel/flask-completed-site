@@ -2,11 +2,7 @@ from app import app, db
 from flask import render_template, request, url_for, redirect, flash, session # url_for - generate url
 from models import User, Item, Order, ReceiveOrder
 from flask_login import login_user, logout_user, current_user, login_required
-
 import datetime
-from telebot import types
-
-
 from settings import *
 
 
@@ -200,13 +196,13 @@ def process_checkout():
     return redirect(url_for("order_info"))
 
 @app.route('/order_status')
-@login_required
+@login_required # @login_required user must be logged in, otherwise he will be redirected to the login page
 def order_info():
      return render_template("order_status.html")
 
 
 @app.route('/achievements')
-@login_required
+
 def achievement_page():
     return render_template("achievement.html")
 

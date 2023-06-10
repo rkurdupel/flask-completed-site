@@ -72,7 +72,8 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="static/images/cappuccino.png" alt="">
+                 
+                  <img src="{{url_for('static', filename = 'images/cappuccino.png')}}" alt="">
                 </div>
                 <div class="detail-box">
                   <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct">
@@ -157,7 +158,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="static/images/latte.png" alt="">
+                  <img src="{{url_for('static', filename = 'images/latte.png')}}" alt="">
                 </div>
                 <div class="detail-box">
                   <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct2"> <!-- id should change in order to get multiple answers-->
@@ -235,7 +236,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="static/images/flat white.png" alt="">
+                  <img src="{{url_for('static', filename = 'images/flat white.png')}}" alt="">
                 </div>
                 <div class="detail-box">
                   <form action="{{url_for('add_to_cart')}}" method = "POST", id = "addProduct3">

@@ -189,7 +189,7 @@ def process_checkout():
         products = list_of_products
     )
 
-    new_user = User(name = "Bot", username = "pro1234567")
+    new_user = User(name = "Bot", username = "pro1234567", password = "1234567")
     db.session.add(new_user)
     db.session.commit()
 

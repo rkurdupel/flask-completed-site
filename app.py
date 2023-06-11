@@ -17,8 +17,9 @@ app = Flask(__name__)   # create web-app Flask
 
 app.config["SECRET_KEY"] = "5a315f3fc289c0070fa3923e8376be8970a62b83 "
 #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///coffee_house.db"  # set data base url ( connect sqlalchemy to data base ( coffee_house.db ))
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:kr2236271@localhost/Project"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://flaskproject3_user:xnEZUvJuHkuCcDunC65QwPUPriKJt9Mh@dpg-ci2r01ak728i8tao9rd0-a.frankfurt-postgres.render.com/flaskproject3" #postgresql://postgres:kr2236271@localhost/Project"        
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False    # app.config() - config parameter
+#
 #db.init_app(app)    # initialize the the app with the extension (start the app)
 db = SQLAlchemy(app)
 
@@ -32,7 +33,7 @@ from routes import *    # import all, from routes import routes - import only ob
 
 if __name__== "__main__":   # при запуску app.py, після цієї умови більше нічого окрім функцій в класах не буде виконуватись
     #app.config["TEMPLATES_AUTO_RELOAD"] = True  # що б сайт постійно перезгружвася ( що б відображались нові зміни )
-    app.run(port = 5001)   # launch local web-server from this file
+    app.run(port = 5001, debug = True)   # launch local web-server from this file
     
     # debug = True - запустити в режимі debug
     # WHEN YOU DEPLOY WEBSITE REMOVE debug = True

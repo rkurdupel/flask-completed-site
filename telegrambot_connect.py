@@ -45,7 +45,7 @@ def receive_orders(message):
         bot.send_message(message.chat.id, text = "You will be notified about new orders", reply_markup = markup)
 
         #conn = sqlite3.connect("")
-        conn = psycopg2.connect("postgresql://postgres:kr2236271@localhost/Project")
+        conn = psycopg2.connect("postgresql://flaskproject3_user:xnEZUvJuHkuCcDunC65QwPUPriKJt9Mh@dpg-ci2r01ak728i8tao9rd0-a.frankfurt-postgres.render.com/flaskproject3")
         cursor = conn.cursor()
         list_of_all_orders = []
         # for order in data:

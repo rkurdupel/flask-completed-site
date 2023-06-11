@@ -443,8 +443,20 @@ body {
   color: #fff
 }
 
-/* laoder */
 
+/* customer reviews */
+.testimonial-item {
+  color: white; /*color: white - text color white */
+}
 
+.move-to-right {
+  margin-left: 30px;  /* margin-left: 30px; - indent from left to right */
+}
+
+.label {
+  font-family: 'Spline Sans Mono', monospace;
+}
+
+/* loader */
 
  /* ctrl + fn + f5 reload styles */       

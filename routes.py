@@ -53,7 +53,7 @@ def signup():
 @app.route("/signin", methods = ["POST", "GET"])
 def signin():
     if current_user.is_authenticated:   # if user is already logged in and is trying to enter the log in page he will be redirected to the main page(index)
-        return redirect(url_for("index"))
+        return redirect(url_for("hall_page"))
     if request.method == "POST":
         user = User.query.filter_by(username = request.form["username"]).first() # get username from database
         if user and user.check_password(request.form["password"]):  # if user exists and password match
@@ -161,6 +161,9 @@ def checkout_page():
 @app.route("/process_checkout", methods = ["POST"])
 @login_required
 def process_checkout():
+
+ 
+
     name = request.form["full-name"]
     email = request.form["email"]
     address = request.form["user_address"]
@@ -189,8 +192,8 @@ def process_checkout():
         products = list_of_products
     )
 
-    #new_user = User(name = "Bot", username = "pro1234567", password = "1234567")
-    db.session.add(new_order_receive)
+    new_order = new_order_receive
+    db.session.add(new_order)
     db.session.commit()
 
     print(55555)

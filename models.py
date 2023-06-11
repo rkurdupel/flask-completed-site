@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 class User(db.Model,  UserMixin):   # create db # filter by priority 1)db.Model 2) UserMixin, if there are same functions first function will be taken from db.Model then from UserMixin
+    __tablename__ = "user"
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(50), unique = True, nullable = False)    # nullable = False - value can not be empty (0)
     # db.String(50) - amount of letters db.String(size)
@@ -29,12 +30,14 @@ def load_user(user_id):
 
 
 class Item(db.Model):
+    __tablename__ = "item"
     product_id = db.Column(db.Integer, primary_key = True)
     product_name = db.Column(db.String, nullable = False)
     price = db.Column(db.Integer)
     
 
 class Order(db.Model):
+    __tablename__ = "orders"
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer)
     product_name = db.Column(db.String)
@@ -47,6 +50,7 @@ class Order(db.Model):
 
 
 class ReceiveOrder(db.Model):
+    __tablename__ = "receive_order"
     id = db.Column(db.Integer, primary_key = True)
     user_name = db.Column(db.String)
     user_email = db.Column(db.String)

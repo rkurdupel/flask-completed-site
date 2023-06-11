@@ -3,8 +3,9 @@ from telebot import types
 import sqlite3
 from settings import *
 import time
-from app import db, app
+from app import *
 from datetime import datetime
+import psycopg2
 
 
 
@@ -43,7 +44,8 @@ def receive_orders(message):
 
         bot.send_message(message.chat.id, text = "You will be notified about new orders", reply_markup = markup)
 
-        conn = sqlite3.connect(PATH_INSTANCE + "coffee_house.db")
+        #conn = sqlite3.connect("")
+        conn = psycopg2.connect("postgresql://postgres:kr2236271@localhost/Project")
         cursor = conn.cursor()
         list_of_all_orders = []
         # for order in data:
@@ -53,6 +55,7 @@ def receive_orders(message):
         while True:
             cursor.execute('''SELECT * FROM receive_order''')
             data = cursor.fetchall()
+            print(data)
             
             for order in data:
                 order_id = order[0] # get order id
@@ -73,13 +76,9 @@ def receive_orders(message):
             #bot.send_message(message.chat.id, order_details)
             
         
-        
-
-           
-            
-
-       
+print("Bot has started")            
 bot.polling(none_stop = True)
+
 # while True:
 #     data()
     #receive_order()

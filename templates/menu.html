@@ -172,7 +172,13 @@
                     <h6>
                       $9
                     </h6>
+                    {% if current_user.is_authenticated %} <!-- if user is authenticated - allow him to add product to cart, if he is not authenticated there will be error UserMixin has no id-->
                     <a href="#" onclick = "document.getElementById('addProduct2').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -244,13 +250,18 @@
                    <input type= "hidden" name = "item" value = "Flat White"> Flat White
                   </h5>
                   <p>
-                    Originating from Australia and New Zealand, it consists of a double shot of espresso with steamed milk, creating a creamy flavor
+                    Originating from Australia and New Zealand, it consists of a double shot of espresso with steamed milk
                   </p>
                   <div class="options">
                     <h6>
                       $7
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct3').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -329,7 +340,12 @@
                     <h6>
                       $8
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct4').submit()">  <!-- confirm form -->
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -407,7 +423,11 @@
                     <h6>
                       $10
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct5').submit()">
+                    {% else %} 
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -485,7 +505,13 @@
                     <h6>
                       $5
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct6').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -563,7 +589,13 @@
                     <h6>
                       $5
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct7').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -641,7 +673,12 @@
                     <h6>
                       $4
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct8').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}   
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -719,7 +756,12 @@
                     <h6>
                       $6
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct9').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -807,7 +849,13 @@
                     <h6>
                       $10
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct10').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -885,7 +933,13 @@
                     <h6>
                       $8
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct11').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -963,7 +1017,12 @@
                     <h6>
                       $9
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct12').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1041,7 +1100,12 @@
                     <h6>
                       $12
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct13').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}   
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1113,13 +1177,19 @@
                     <input type= "hidden" name = "item" value = "Apple Strudel">Apple Strudel
                   </h5>
                   <p>
-                    A traditional pastry made with flaky layers of dough filled with sweet apple slices, cinnamon, and topped with powdered sugar
+                    A traditional pastry made with flaky layers of dough filled with sweet apple slices, cinnamon topped with powdered sugar
                   </p>
                   <div class="options">
                     <h6>
                       $11
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct14').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1191,13 +1261,18 @@
                     <input type= "hidden" name = "item" value = "Belgian Waffles">Belgian Waffles
                   </h5>
                   <p>
-                    A beloved breakfast treat featuring light and fluffy waffles with deep pockets, served with toppings like fresh fruit or whipped cream
+                    A beloved breakfast treat featuring fluffy waffles with deep pockets, served with toppings like fresh fruit or whipped cream
                   </p>
                   <div class="options">
                     <h6>
                       $9
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct15').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}  
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1275,7 +1350,12 @@
                     <h6>
                       $3 
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct16').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %} 
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1353,7 +1433,13 @@
                     <h6>
                       $5
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct17').submit()">
+                    {% else %}
+                    <a href = "{{ url_for('signin') }} ">  <!-- otherwise, redirect to the sign in page -->
+                    {% endif %}
+                      
+                      
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>
@@ -1431,7 +1517,12 @@
                     <h6>
                       $3
                     </h6>
+                    {% if current_user.is_authenticated %}
                     <a href="#" onclick = "document.getElementById('addProduct18').submit()">
+                    {% else %}
+                    <a href = " {{ url_for('signin') }}"> <!-- <a> is closed at the end-->
+                    {% endif %}
+
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                         <g>
                           <g>

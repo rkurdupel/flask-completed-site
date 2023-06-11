@@ -32,7 +32,7 @@ from routes import *    # import all, from routes import routes - import only ob
 
 if __name__== "__main__":   # при запуску app.py, після цієї умови більше нічого окрім функцій в класах не буде виконуватись
     #app.config["TEMPLATES_AUTO_RELOAD"] = True  # що б сайт постійно перезгружвася ( що б відображались нові зміни )
-    app.run(port = 5001, debug = True)   # launch local web-server from this file
+    app.run(port = 5001)   # launch local web-server from this file
     
     # debug = True - запустити в режимі debug
     # WHEN YOU DEPLOY WEBSITE REMOVE debug = True
